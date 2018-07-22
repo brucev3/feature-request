@@ -1,8 +1,43 @@
+Flask
+
+https://www.fullstackpython.com/flask.html
+
+    Is a Python web framework built with a small core
+    and easy-to-extend philosophy.
+    Flask is considered more Pythonic than the Django web framework because in
+    common situations the equivalent Flask web application is more explicit.
+    Flask is also easy to get started with as a beginner because there is
+    little boilerplate code for getting a simple app up and running. 
+
+http://flask-sqlalchemy.pocoo.org/2.3/
+
+SQLAlchemy
+
+https://www.fullstackpython.com/sqlalchemy.html
+
+    Is a well-regarded database toolkit and object-relational mapper (ORM)
+    implementation written in Python. SQLAlchemy provides a generalized
+    interface for creating and executing database-agnostic code without
+    needing to write SQL statements.
+
+
 What is the difference between MVC and MVVM?
 
 https://stackoverflow.com/questions/667781/what-is-the-difference-between-mvc-and-mvvm
 
-    In MVC,the controller chooses the view(ex. web server). After the view is chosen, the view's state isn't connected to the controller. MVVM, the state of the view is continuously connected to the ViewModel(has some features similar to the controller). Think WPF/datacontext. There is actually more to it than that. MVC vs MVP vs MVVM:Differences Explained - students.cs.byu.edu/~cs340ta/spring2017/notes/08-MVC/… – i8abug Aug 10 '11 at 4:03
+    In MVC,the controller chooses the view(ex. web server). After the view is
+    chosen, the view's state isn't connected to the controller. MVVM, the
+    state of the view is continuously connected to the ViewModel(has some
+    features similar to the controller). Think WPF/datacontext.
+
+    MVVM - Model–view–viewmodel
+    Use in situations where binding via a datacontext is possible.
+    Why?
+    The various IView interfaces for each view are removed which
+    means less code to maintain. Some examples where MVVM is possible
+    include WPF and javascript projects using Knockout.js
+
+https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel
 
 
 
@@ -10,4 +45,9 @@ What is the DAO object model?
 
 https://msdn.microsoft.com/en-us/library/aa266932(v=vs.60).aspx
 
-    The DAO object model is a collection of objects that model the structure of a relational database system. With the properties and methods provided by DAO objects, you can accomplish all of the operations necessary to manage such a system, including facilities for creating databases, defining tables, fields, and indexes, establishing relations between tables, and navigating and querying the database.
+    The DAO object model is a collection of objects that model the structure
+    of a relational database system. With the properties and methods provided
+    by DAO objects, you can accomplish all of the operations necessary to
+    manage such a system, including facilities for creating databases, defining
+    tables, fields, and indexes, establishing relations between tables, and
+    navigating and querying the database.
