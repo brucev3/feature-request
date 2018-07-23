@@ -1,3 +1,23 @@
+Amazon Web Services
+
+https://aws.amazon.com/getting-started/use-cases/websites/
+https://aws.amazon.com/getting-started/projects/deploy-python-application/
+https://us-east-2.console.aws.amazon.com/codedeploy/home?region=us-east-2#/introduction
+https://docs.aws.amazon.com/codedeploy/latest/userguide/application-revisions-push.html?icmpid=docs_acd_console
+http://flask.pocoo.org/docs/1.0/deploying/#deployment
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html
+
+    On Linux and macOS, use your preferred shell and package manager.
+    On Windows 10, you can install the Windows Subsystem for Linux to get a
+    Windows-integrated version of Ubuntu and Bash.
+        https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+
+PyCharm
+
+https://www.jetbrains.com/pycharm/features/web_development.html
+
+
 Flask
 
 https://www.fullstackpython.com/flask.html
