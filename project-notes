@@ -1,16 +1,5 @@
-Amazon Web Services
 
-https://aws.amazon.com/getting-started/use-cases/websites/
-https://aws.amazon.com/getting-started/projects/deploy-python-application/
-https://us-east-2.console.aws.amazon.com/codedeploy/home?region=us-east-2#/introduction
-https://docs.aws.amazon.com/codedeploy/latest/userguide/application-revisions-push.html?icmpid=docs_acd_console
-http://flask.pocoo.org/docs/1.0/deploying/#deployment
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html
 
-    On Linux and macOS, use your preferred shell and package manager.
-    On Windows 10, you can install the Windows Subsystem for Linux to get a
-    Windows-integrated version of Ubuntu and Bash.
-        https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 
 PyCharm
@@ -19,6 +8,21 @@ https://www.jetbrains.com/pycharm/features/web_development.html
 
 
 Flask
+    With a python virtual environment run the app outside the ide
+        bdv@mars:/code/github/feature-request$ source virt/bin/activate
+            OR
+        bdv@mars:/code/github/feature-request$ source ~/flask-virtual/bin/activate
+        (flask-virtual) bdv@mars:/code/github/feature-request$ python application.py 
+         * Serving Flask app "application" (lazy loading)
+         * Environment: production
+           WARNING: Do not use the development server in a production environment.
+           Use a production WSGI server instead.
+         * Debug mode: on
+         * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+         * Restarting with stat
+         * Debugger is active!
+         * Debugger PIN: 301-686-151
+
 
 https://www.fullstackpython.com/flask.html
 
