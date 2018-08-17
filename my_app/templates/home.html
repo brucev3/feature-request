@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <h1>Welcome to the Feature Request application</h1>
+  <a href="{{ url_for('features.home') }}" id="features_link">
+      Click here to see the features
+  </a>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+  $.getJSON("/home", function(data) {
+    $('#features_link').append('<span class="badge">' + data.count + '</span>');
+  });
+});
+</script>
+{% endblock %}
