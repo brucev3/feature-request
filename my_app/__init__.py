@@ -15,4 +15,4 @@ from my_app.features.views import featreq
 app.register_blueprint(featreq)
 
 # db.drop_all()
-db.create_all()
+# db.create_all()

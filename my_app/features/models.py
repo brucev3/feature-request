@@ -28,7 +28,7 @@ class Feature(db.Model):
 
 class Area(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    area = db.Column(db.String(50))
+    name = db.Column(db.String(50))
 
     def __repr__(self):
         return '<Area %d>' % self.id
@@ -39,3 +39,35 @@ class Client(db.Model):
 
     def __repr__(self):
         return '<Client %d>' % self.id
+
+# populate 'static' tables
+def populate():
+    for client in ['Client A', 'Client B', 'Client C']:
+
+        dup = False
+        for c in Client.query.distinct(Client.name):
+            if client == c.name:
+                dup = True
+                break
+        if dup:
+            continue
+
+        c = Client(name=client)
+        db.session.add(c)
+        db.session.commit()
+
+    for area in ['Policies', 'Billing', 'Claims', 'Reports']:
+
+        dup = False
+        for a in Area.query.distinct(Area.name):
+            if area == a.name:
+                dup = True
+                break
+        if dup:
+            continue
+
+        a = Area(name=area)
+        db.session.add(a)
+        db.session.commit()
+
+    # TODO possibly make populate cooler with --- $ sqlite3 features.db < features.sql
