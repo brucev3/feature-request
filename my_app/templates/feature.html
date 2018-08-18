@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+
+{% block container %}
+  <div class="top-pad">
+    <h1>{{ feature.name }}<small> {{ feature.customer.name }}</small></h1>
+    <h4>{{ feature.priority }}</h4>
+    <h4>{{ feature.description }}</h4>
+  </div>
+{% endblock %}

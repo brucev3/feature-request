@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+{% block container %}
+  <div class="top-pad">
+    {% for feature in features.items %}
+      <div class="well">
+        <h2>
+          <a href="{{ url_for('features.feature', id=feature.id) }}">{{ feature.title }}</a>
+          <small>$ {{ feature.priority }}</small>
+        </h2>
+      </div>
+    {% endfor %}
+    {% if features.has_prev %}
+      <a href="{{ url_for('features.features', page=products.prev_num) }}">
+        {{"<< Previous Page"}}
+      </a>
+    {% else %}
+      {{"<< Previous Page"}}
+    {% endif %} |
+    {% if features.has_next %}
+      <a href="{{ url_for('features.featuress', page=products.next_num) }}">
+        {{"Next page >>"}}
+      </a>
+    {% else %}
+      {{"Next page >>"}}
+    {% endif %}
+  </div>
+{% endblock %}

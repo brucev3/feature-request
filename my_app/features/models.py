@@ -8,20 +8,34 @@ from my_app import db
 # don't need to declare a new one).
 class Feature(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255))
-    priority = db.Column(db.Integer)
+    title = db.Column(db.String(255))
     description = db.Column(db.String(2048))
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
-    customer = db.relationship(
-        'Customer', backref=db.backref('features', lazy='dynamic')
+    client_priority = db.Column(db.Integer)
+    target_date = db.Column(db.Date)
+
+    area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
+    area = db.relationship(
+        'Area', backref=db.backref('features', lazy='dynamic')
+    )
+
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id'))
+    client = db.relationship(
+        'Client', backref=db.backref('features', lazy='dynamic')
     )
 
     def __repr__(self):
         return '<Feature %d>' % self.id
 
-class Customer(db.Model):
+class Area(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    area = db.Column(db.String(50))
+
+    def __repr__(self):
+        return '<Area %d>' % self.id
+
+class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
 
     def __repr__(self):
-        return '<Customer %d>' % self.id
+        return '<Client %d>' % self.id
