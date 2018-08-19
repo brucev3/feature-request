@@ -48,12 +48,13 @@ def create_feature():
             form.area.data
         )
         title = form.title.data
-        # description = form.description.data
+        description = form.description.data
 
         priority = form.priority.data
 
         f = Feature(
             title=title,
+            description=description,
             priority=priority,
             client=client,
             area=area
