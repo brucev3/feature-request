@@ -12,15 +12,15 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ url_for('features.home') }}">Feature Request</a>
+            <a class="navbar-brand" href="{{ url_for('features.home') }}">Go to the home page</a>
         </div>
       </div>
     </div>
     <div class="container">
       <br/>
       <div>
-        {% for category, message in get_flashed_messages(with_categories=true) %}
-          <div class="alert alert-{{category}} alert-dismissable">
+        {% for client, message in get_flashed_messages(with_categories=true) %}
+          <div class="alert alert-{{client}} alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             {{ message }}
           </div>

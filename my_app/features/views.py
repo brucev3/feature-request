@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, flash, url_for
 # from my_app import manager # TODO future feature for RESTfulness
-from my_app import app
-from my_app.features.models import Feature, Area, Client
+from my_app import app, db
+from my_app.features.models import Feature, Area, Client, FeatureForm
 from my_app.decorators import template_or_json
 
 # # Flask-Restless - db only - implicit routes ~/api/<db.model.classname>
@@ -32,7 +32,29 @@ def features(page=1):
     fs = Feature.query.paginate(page, 10)
     return render_template('features.html', features=fs)
 
+@featreq.route('/feature-create', methods=['GET', 'POST'])
+def create_feature():
+    form = FeatureForm(request.form, csrf_enabled=False)
 
+    # clients = [(c.id, c.name) for c in Client.query.all()]
+    # form.clients.choices = clients
+
+    if form.validate_on_submit(): # this is a POST
+        title = form.title.data
+        # price = form.price.data
+        client = Client.query.get_or_404(
+            form.client.data
+        )
+        f = Feature(title=title, client=client)
+        db.session.add(f)
+        db.session.commit()
+        flash('The feature %s has been created' % title, 'success')
+        return redirect(url_for('features.feature', id=f.id))
+
+    if form.errors:
+        flash(form.errors, 'danger')
+
+    return render_template('feature-create.html', form=form)
 
 
 

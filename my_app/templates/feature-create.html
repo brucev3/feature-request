@@ -5,9 +5,13 @@
       Click here to see the features
   </a>
   <div class="top-pad">
-    <h1>{{ feature.name }}<small> {{ feature.client.name }}</small></h1>
-    <h4>{{ feature.priority }}</h4>
-    <h4>{{ feature.description }}</h4>
+    <form method="POST"
+        action="{{ url_for('features.create_feature') }}" role="form"
+        enctype="multipart/form-data">
+      <div class="form-group">{{ form.title.label }}: {{ form.title() }}</div>
+      <div class="form-group">{{ form.client.label }}: {{ form.client() }}</div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
   </div>
 {% endblock %}
 

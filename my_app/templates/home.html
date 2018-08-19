@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block container %}
-  <h1>Welcome to Feature Request</h1>
+  <h4>Welcome to the feature request app</h4>
+     <div class="navbar-header">
+        <a class="navbar-brand" href="{{ url_for('features.create_feature') }}">
+            Create a new feature request
+        </a>
+      </div>
+    </br>
   <a href="{{ url_for('features.features') }}" id="features_link">
       Click here to see the features
   </a>

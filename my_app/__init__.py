@@ -16,3 +16,5 @@ app.register_blueprint(featreq)
 
 # db.drop_all()
 # db.create_all()
+
+app.secret_key = 'some_secret_key'
