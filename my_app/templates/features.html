@@ -6,7 +6,7 @@
       <div class="well">
         <h2>
           <a href="{{ url_for('features.feature', id=feature.id) }}">{{ feature.title }}</a>
-          <small>$ {{ feature.priority }}</small>
+          <small> for {{ feature.client.name }}</small>
         </h2>
       </div>
     {% endfor %}

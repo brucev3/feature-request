@@ -40,12 +40,22 @@ def create_feature():
     # form.clients.choices = clients
 
     if form.validate_on_submit(): # this is a POST
-        title = form.title.data
-        # price = form.price.data
-        client = Client.query.get_or_404(
-            form.client.data
+
+        client = Client.query.get_or_404(form.client.data)
+        area = Area.query.get_or_404(
+            form.area.data
         )
-        f = Feature(title=title, client=client)
+        title = form.title.data
+        # description = form.description.data
+
+        # priority = form.priority.data
+
+        f = Feature(
+            title=title,
+            # priority=priority,
+            client=client,
+            area=area
+        )
         db.session.add(f)
         db.session.commit()
         flash('The feature %s has been created' % title, 'success')

@@ -5,9 +5,10 @@
       Click here to see the features
   </a>
   <div class="top-pad">
-    <h1>{{ feature.name }}<small> {{ feature.client.name }}</small></h1>
-    <h4>{{ feature.priority }}</h4>
-    <h4>{{ feature.description }}</h4>
+    <h1><small></small>{{ feature.title }}</h1>
+    <h4><small>Client </small>{{ feature.client.name }}</h4>
+    <h4><small>Priority </small>{{ feature.priority }}</h4>
+    <h4><small>Product Area </small>{{ feature.area.name }}</h4>
   </div>
 {% endblock %}
 

@@ -15,7 +15,7 @@ class Feature(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     description = db.Column(db.String(2048))
-    client_priority = db.Column(db.Integer)
+    # priority = db.Column(db.Integer)
     target_date = db.Column(db.Date)
 
     area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
@@ -72,8 +72,6 @@ class ClientField(SelectField): # custom field
 
     def pre_validate(self, form):
 
-        # comp = [(c.id, c.name) for c in Client.query.all()]
-
         for v, _ in [(c.id, c.name) for c in Client.query.all()]:
             if self.data == v:
                 break
@@ -81,12 +79,33 @@ class ClientField(SelectField): # custom field
                 pass
                 # raise ValueError(self.gettext('Not a valid choice')) # TODO this is borked
 
+class AreaField(SelectField): # custom field
+    widget = CustomClientInput()
+
+    def iter_choices(self):
+        areas = [(c.id, c.name) for c in Area.query.all()]
+        for value, label in areas:
+            yield (value, label, self.coerce(value) == self.data)
+
+    def pre_validate(self, form):
+
+        for v, _ in [(c.id, c.name) for c in Client.query.all()]:
+            if self.data == v:
+                break
+            else:
+                pass
+
 class FeatureForm(Form):
     title = TextField('Title', validators=[InputRequired()])
     client = ClientField(
         'Client', validators=[InputRequired()], coerce=int
     )
-    image = FileField('Product Image')
+    area = AreaField(
+        "Product Area", validators=[InputRequired()], coerce=int
+    )
+    # priority = DecimalField('Priority', validators=[
+    #     InputRequired(), NumberRange(min=Decimal('0.0'))
+    # ])
 
 # populate 'static' tables
 def populate():
