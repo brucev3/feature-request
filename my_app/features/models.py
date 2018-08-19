@@ -9,7 +9,7 @@ from my_app import db
 class Feature(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
-    description = db.Column(db.String(2048))
+    description = db.Column(db.Text(2048))
     priority = db.Column(db.Integer)
     target_date = db.Column(db.Date)
 
