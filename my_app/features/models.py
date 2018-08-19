@@ -1,5 +1,4 @@
 from my_app import db
-from decimal import Decimal # TODO temporary
 
 # https://media.readthedocs.org/pdf/flask-restless/latest/flask-restless.pdf
 # Create your Flask-SQLALchemy models as usual but with the following
@@ -11,7 +10,7 @@ class Feature(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     description = db.Column(db.String(2048))
-    # priority = db.Column(db.Integer)
+    priority = db.Column(db.Float)
     target_date = db.Column(db.Date)
 
     area_id = db.Column(db.Integer, db.ForeignKey('area.id'))

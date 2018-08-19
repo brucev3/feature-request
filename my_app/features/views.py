@@ -50,11 +50,11 @@ def create_feature():
         title = form.title.data
         # description = form.description.data
 
-        # priority = form.priority.data
+        priority = form.priority.data
 
         f = Feature(
             title=title,
-            # priority=priority,
+            priority=priority,
             client=client,
             area=area
         )
