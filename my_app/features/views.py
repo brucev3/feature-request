@@ -43,21 +43,20 @@ def create_feature():
 
     if form.validate_on_submit(): # this is a POST
 
-        client = Client.query.get_or_404(form.client.data)
-        area = Area.query.get_or_404(
-            form.area.data
-        )
         title = form.title.data
-        description = form.description.data
-
+        client = Client.query.get_or_404(form.client.data)
         priority = form.priority.data
+        target_date = form.target_date.data
+        area = Area.query.get_or_404(form.area.data)
+        description = form.description.data
 
         f = Feature(
             title=title,
-            description=description,
-            priority=priority,
             client=client,
-            area=area
+            priority=priority,
+            target_date=target_date,
+            area=area,
+            description=description
         )
         db.session.add(f)
         db.session.commit()

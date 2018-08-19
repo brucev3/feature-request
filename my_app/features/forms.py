@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, SelectField, StringField, IntegerField
+from wtforms import TextField, TextAreaField, SelectField, DateField, IntegerField
 from wtforms.validators import InputRequired, NumberRange, Optional, ValidationError
 from wtforms.widgets import Select, html_params, HTMLString
 from my_app.features.models import Client, Area
@@ -67,3 +67,5 @@ class FeatureForm(Form):
         InputRequired(), NumberRange(min=Decimal('0'))
     ])
     description = TextAreaField('Description', validators=[InputRequired()])
+    target_date = DateField('Target Date (YYYY-mm-dd)', format='%Y-%m-%d', validators=[InputRequired()])
+
