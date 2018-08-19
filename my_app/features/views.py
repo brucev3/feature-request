@@ -1,12 +1,14 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 # from my_app import manager # TODO future feature for RESTfulness
 from my_app import app, db
-from my_app.features.models import Feature, Area, Client, FeatureForm
+from my_app.features.models import Feature, Area, Client
+from my_app.features.forms import FeatureForm
 from my_app.decorators import template_or_json
 
 # # Flask-Restless - db only - implicit routes ~/api/<db.model.classname>
 # manager.create_api(Feature, methods=['GET', 'POST', 'DELETE']) # TODO future feature for RESTfulness
-# manager.create_api(Customer, methods=['GET', 'POST', 'DELETE']) # TODO future feature for RESTfulness
+# manager.create_api(Client, methods=['GET', 'POST', 'DELETE']) # TODO future feature for RESTfulness
+# manager.create_api(Area, methods=['GET', 'POST', 'DELETE']) # TODO future feature for RESTfulness
 # # can use custom processors to customize handling of the requests
 # # see  -  https://flask-restless.readthedocs.io/en/latest/processors.html
 
