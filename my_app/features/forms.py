@@ -1,9 +1,9 @@
 from flask_wtf import Form
-from wtforms import TextField, DecimalField, SelectField, FileField
+from wtforms import TextField, DecimalField, SelectField, FileField, IntegerField
 from wtforms.validators import InputRequired, NumberRange, Optional, ValidationError
 from wtforms.widgets import Select, html_params, HTMLString
 from my_app.features.models import Client, Area
-from decimal import Decimal # TODO temporary
+from decimal import Decimal
 
 ### Forms ###
 # https://wtforms.readthedocs.io/en/latest/widgets.html
@@ -63,6 +63,6 @@ class FeatureForm(Form):
     area = AreaField(
         "Product Area", validators=[InputRequired()], coerce=int
     )
-    priority = DecimalField('Priority', validators=[
-        InputRequired(), NumberRange(min=Decimal('0.0'))
+    priority = IntegerField('Priority', validators=[
+        InputRequired(), NumberRange(min=Decimal('0'))
     ])

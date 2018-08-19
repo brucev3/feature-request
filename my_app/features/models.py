@@ -10,7 +10,7 @@ class Feature(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     description = db.Column(db.String(2048))
-    priority = db.Column(db.Float)
+    priority = db.Column(db.Integer)
     target_date = db.Column(db.Date)
 
     area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
