@@ -6,19 +6,19 @@
       <div class="well">
         <h2>
           <a href="{{ url_for('features.feature', id=feature.id) }}">{{ feature.title }}</a>
-          <small> for {{ feature.client.name }}</small>
+          <small> for {{ feature.client.name }} priority {{ feature.priority }}</small>
         </h2>
       </div>
     {% endfor %}
     {% if features.has_prev %}
-      <a href="{{ url_for('features.features', page=products.prev_num) }}">
+      <a href="{{ url_for('features.features', page=features.prev_num) }}">
         {{"<< Previous Page"}}
       </a>
     {% else %}
       {{"<< Previous Page"}}
     {% endif %} |
     {% if features.has_next %}
-      <a href="{{ url_for('features.featuress', page=products.next_num) }}">
+      <a href="{{ url_for('features.features', page=features.next_num) }}">
         {{"Next page >>"}}
       </a>
     {% else %}

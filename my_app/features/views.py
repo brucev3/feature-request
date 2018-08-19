@@ -58,6 +58,7 @@ def create_feature():
             area=area,
             description=description
         )
+        maybe_adjust_priority(f)
         db.session.add(f)
         db.session.commit()
         flash('The feature %s has been created' % title, 'success')
@@ -68,8 +69,41 @@ def create_feature():
 
     return render_template('feature-create.html', form=form)
 
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+def maybe_adjust_priority(new_feature):
+    '''
+    When adding a new feature, adjust the feature priorities if there is conflict
+    with any of the existing features. Recursively check until all the lower
+    priority features have been shifted to their next lower priority (higher number)
+    :param: Feature object
+    :return: None
+    '''
+
+    client_features = get_client_features(new_feature.client.name)
+
+    for f in client_features:
+        if f.priority == new_feature.priority and f is not new_feature:
+            adjust_priorities(client_features, new_feature)
+
+# there was a conflict, need to adjust priorities
+def adjust_priorities(features, new_feature):
+    new_priority = new_feature.priority
+    for f in features:
+        if f.priority == new_priority and f is not new_feature:
+            f.priority += 1
+            db.session.commit()
+            maybe_adjust_priority(f)
+
+# get the features for a client
+def get_client_features(clientname):
+
+    all_features = Feature.query.all()
+    client_features = []
+    for f in all_features:
+        if f.client.name == clientname:
+            client_features.append(f)
+
+    return client_features
