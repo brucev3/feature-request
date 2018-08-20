@@ -1,5 +1,5 @@
 import os
-from my_app import app, db
+from my_app import application, db
 import unittest2 as unittest
 import tempfile
 
@@ -7,12 +7,12 @@ class FeaturesTestCase(unittest.TestCase):
 
     def setUp(self):
         self.test_db_file = tempfile.mkstemp()[1]
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + self.test_db_file
-        app.config['TESTING'] = True
+        application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + self.test_db_file
+        application.config['TESTING'] = True
 
-        app.config['WTF_CSRF_ENABLED'] = False
+        application.config['WTF_CSRF_ENABLED'] = False
 
-        self.app = app.test_client()
+        self.app = application.test_client()
         db.create_all()
 
     def tearDown(self):

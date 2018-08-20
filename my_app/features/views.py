@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 # from my_app import manager # TODO future feature for RESTfulness
-from my_app import app, db
+from my_app import application, db
 from my_app.features.models import Feature, Area, Client
 from my_app.features.forms import FeatureForm
 from my_app.decorators import template_or_json
@@ -69,7 +69,7 @@ def create_feature():
 
     return render_template('feature-create.html', form=form)
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
