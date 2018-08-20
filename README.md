@@ -20,7 +20,7 @@ Create a Python virtual environment at the root of the project.
 
         No virtualenv?
 
-    ~/fapp/feature-request$  ~/fapp/feature-request$ sudo apt install virtualenv
+    ~/fapp/feature-request$ sudo apt install virtualenv
     ~/fapp/feature-request$ which virtualenv
     /usr/local/bin/virtualenv
     ~/fapp/feature-request$ virtualenv venv
