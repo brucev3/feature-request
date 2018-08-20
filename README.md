@@ -61,6 +61,22 @@ Ctrl + c will kill the app.
 
     ^C(venv) ~/fapp/feature-request$
 
+Run the unit tests.
+
+    (venv) ~/fapp/feature-request$ nosetests -v
+    /home/bdv/fapp/feature-request/venv/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+      'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+    Test Feature page ... ok
+    Test Featureslist page ... ok
+    Test Featureslist page one ... ok
+    test_home (my_app.app_test.FeaturesTestCase) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.422s
+
+    OK
+    (venv) ~/fapp/feature-request$
+
 Deactivate the virtual environment.
 
     (venv) ~/fapp/feature-request$ deactivate
