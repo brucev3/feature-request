@@ -40,22 +40,17 @@ Install additional Python modules in the virtual environment the app needs.
 
 Run the app.
 
-    (venv) ~/fapp/feature-request$ python run.py
+    (venv) ~/fapp/feature-request$ python application.py
     /home/bdv/fapp/feature-request/venv/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
       'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
      * Serving Flask app "my_app" (lazy loading)
      * Environment: production
        WARNING: Do not use the development server in a production environment.
        Use a production WSGI server instead.
-     * Debug mode: on
-     * Running on http://127.0.0.1:5002/ (Press CTRL+C to quit)
-     * Restarting with stat
-    /home/bdv/fapp/feature-request/venv/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
-      'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
-     * Debugger is active!
-     * Debugger PIN: 147-968-870
+     * Debug mode: off
+     * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
-You can see app is available at http://127.0.0.1:5002/ point your browser there.
+You can see app is available at http://127.0.0.1:5000/ point your browser there.
 
 Ctrl + c will kill the app.
 
